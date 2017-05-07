@@ -1,20 +1,20 @@
 import React from "react"
-import { List, ListItem, Right, Text, View} from "native-base"
+import {Item, List, ListItem, Picker, Right, Text, View} from "native-base"
+import * as R from "ramda"
 
 export default StepListView = ({step, model, activeConfig}) => (
     <View>
         <List>
             {
-                step.fields.map(field => (
-                    <ListItem key={field}>
-                        <View>
-                            <Text>{model[field].verbose}</Text>
-                            <Right>
-                                <Text>{activeConfig[field]}</Text>
-                            </Right>
-                        </View>
-                    </ListItem>
-                ))
+                step.fields.map(fieldName => {
+                    const field = model[fieldName]
+                    const FieldComponent = field.component
+                    return (
+                        <ListItem key={fieldName}>
+                            <FieldComponent verbose={field.verbose} field={R.dissoc("component", field)} value={activeConfig[fieldName]}/>
+                        </ListItem>
+                    )
+                })
             }
 
         </List>
