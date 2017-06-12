@@ -1,4 +1,5 @@
 {
-  "name": "confy",
-  "displayName": "confy"
+  "expo": {
+    "sdkVersion": "17.0.0"
+  }
 }
