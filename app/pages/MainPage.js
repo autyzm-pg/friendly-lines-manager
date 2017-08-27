@@ -42,7 +42,7 @@ const MainPage = ({history, location, activeConfig}) => (
             </Button>
         </Content>
         <Footer>
-            <Text>Aktywna konfiguracja: {activeConfig.id} ({activeConfig.mode === ModeTypes.learning ? "uczenie" : "test"})</Text>
+            <Text>Aktywna konfiguracja: {activeConfig.name} ({activeConfig.mode === ModeTypes.learning ? "uczenie" : "test"})</Text>
             <Body>
             <Button full light  onPress={() =>{
                 Modal.textAsk("Huehe?", "TEST").then(resp => console.log("response!!", resp))
@@ -56,7 +56,11 @@ const MainPage = ({history, location, activeConfig}) => (
 )
 
 const stateToProps = ({configurations}) => ({
-    activeConfig: configurations.active
+    activeConfig: {
+        id: configurations.active.id,
+        mode: configurations.active.mode,
+        name: configurations.all.find(config => config.id === configurations.active.id).name
+    }
 })
 
 export default connect(stateToProps)(MainPage)
