@@ -40,6 +40,4 @@ export const _updateRecord = (readDb, writeDb) => (tableName, id, record) => rea
 
 export const _deleteRecord = (readDb, writeDb) => (tableName, id) => readDb()
     .then(R.over(tablePath(tableName), R.filter(record => record.id !== id)))
-    .then(R.tap(console.log))
     .then(writeDb)
-    .then(R.tap(console.log))
