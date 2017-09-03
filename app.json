@@ -14,10 +14,21 @@
       "hideExponentText": false
     },
     "packagerOpts": {
-      "assetExts": ["ttf", "mp4"]
+      "assetExts": [
+        "ttf",
+        "mp4"
+      ]
     },
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.friendlyapps.friendlylines"
+    },
+    "isDetached": true,
+    "detach": {
+      "scheme": "exp1b78f320e18a4be0b94639ebeb54d1a6",
+      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v1.18.4-sdk19.0.0-3fb414c9-8696-4966-a0ac-9ca424242424.tar.gz"
     }
   }
 }
